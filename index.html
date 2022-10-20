@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex charts</title>
+    <link rel="icon" type="image/x-icon" href="src/favicon.ico">
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        div {
+            width: 600px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <canvas id="a"></canvas>
+    </div>
+    <div>
+        <canvas id="b"></canvas>
+    </div>
+    <div>
+        <canvas id="c"></canvas>
+    </div>
+    <div>
+        <canvas id="d"></canvas>
+    </div>
+    <div>
+        <canvas id="e"></canvas>
+    </div>
+    <div>
+        <canvas id="f"></canvas>
+    </div>
+    <script src="node_modules/chart.js/dist/chart.js"></script>
+    <script>
+        // Lines
+        const chartA = new Chart(document.getElementById('a'), {
+            data: {
+                datasets: [{
+                    type: 'bar',
+                    label: 'How to...',
+                    backgroundColor: [
+                        'rgba(3, 4, 94, 0.8)',
+                        'rgba(2, 62, 138, 0.8)',
+                        'rgba(0, 150, 199, 0.8)',
+                        'rgba(72, 202, 228, 0.2)'
+                    ],
+                    data: [10, 20, 30, 40]
+                }],
+                labels: ['tie a noose', 'play powerball', 'find standard deviation', 'cook food']
+            }
+        });
+
+        // Pie
+        const chartB = new Chart(document.getElementById('b'), {
+            data: {
+                datasets: [{
+                    type: 'doughnut',
+                    label: 'Population',
+                    backgroundColor: [
+                        'rgba(3, 4, 94, 0.8)',
+                        'rgba(2, 62, 138, 0.8)',
+                        'rgba(0, 150, 199, 0.8)',
+                        'rgba(72, 202, 228, 0.2)'
+                    ],
+                    data: [15, 20, 30, 35]
+                }],
+                labels: ['Rural', 'City', 'City Outskirts', 'Capital']
+            }
+        });
+
+        // One line
+        const chartC = new Chart(document.getElementById('c'), {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: 'My First Line Chart',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    fill: false,
+                    borderColor: 'rgba(2, 62, 138, 0.8)',
+                    tension: 0.2
+                }]
+            }
+        });
+
+        // Polar Area
+        const chartD = new Chart(document.getElementById('d'), {
+            type: 'polarArea',
+            data: {
+                labels: [
+                    'Red',
+                    'Green',
+                    'Yellow',
+                    'Grey',
+                    'Blue'
+                ],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [11, 16, 7, 3, 14],
+                    backgroundColor: [
+                        'rgba(3, 4, 94, 0.6)',
+                        'rgba(2, 62, 138, 0.6)',
+                        'rgba(72, 202, 228, 0.6)',
+                        'rgba(0, 150, 199, 0.6)',
+                        'rgba(72, 202, 228, 0.6)'
+                    ]
+                }]
+            }
+        });
+
+        //Radar Area
+        const chartE = new Chart(document.getElementById('e'), {
+            type: 'radar',
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                }
+            },
+            data: {
+                labels: [
+                    'Eating',
+                    'Drinking',
+                    'Sleeping',
+                    'Designing',
+                    'Coding',
+                    'Cycling',
+                    'Running'
+                ],
+                datasets: [{
+                    label: 'Peter',
+                    data: [65, 59, 90, 81, 56, 55, 40],
+                    fill: true,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(255, 99, 132)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(255, 99, 132)'
+                }, {
+                    label: 'Tom',
+                    data: [28, 48, 40, 19, 96, 27, 100],
+                    fill: true,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgb(54, 162, 235)',
+                    pointBackgroundColor: 'rgb(54, 162, 235)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(54, 162, 235)'
+                }]
+            }
+        });
+
+        //Pie Chart
+        const chartF = new Chart(document.getElementById('f'), {
+            data: {
+                datasets: [{
+                    type: 'pie',
+                    label: 'Population',
+                    backgroundColor: [
+                        'rgba(3, 4, 94, 0.8)',
+                        'rgba(2, 62, 138, 0.8)',
+                        'rgba(0, 150, 199, 0.8)',
+                        'rgba(72, 202, 228, 0.2)'
+                    ],
+                    data: [15, 20, 30, 35]
+                }],
+                labels: ['Rural', 'City', 'City Outskirts', 'Capital']
+            }
+        });
+
+    </script>
+</body>
+
+</html>
